@@ -1,16 +1,20 @@
 ﻿-- 1. Veritabanı oluşturulur
 CREATE DATABASE kutuphane;
+GO
+USE kutuphane;
+GO
 
--- 2. Kullanıcılar tablosu
+-- 2. Kullanıcılar tablosu (GÜNCELLENDİ: durum kolonu eklendi)
 CREATE TABLE kullanicilar (
     ID int PRIMARY KEY IDENTITY(1,1),
     kulad nvarchar(50),
     sifre nvarchar(50),
-    yetki nvarchar(20)
+    yetki nvarchar(20),
+    durum nvarchar(20) 
 );
 
--- 3. Admin kullanıcısı eklenir
-INSERT INTO kullanicilar (kulad, sifre, yetki) VALUES ('admin', '123', 'admin');
+-- 3. Admin kullanıcısı eklenir 
+INSERT INTO kullanicilar (kulad, sifre, yetki, durum) VALUES ('admin', '123', 'admin', 'Aktif');
 
 -- 4. Kitap tablosu
 CREATE TABLE kitap (
