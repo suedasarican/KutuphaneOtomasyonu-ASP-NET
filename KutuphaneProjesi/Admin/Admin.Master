@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="KutuphaneProjesi.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Admin Paneli</title>
+    <link href="../css/genel.css" rel="stylesheet" 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <center> 
+    <div id="container">
+
+        <div id="header">
+             
+             <h1 style="text-align: center; color: white; padding: 30px 0; margin:0;">
+                 Yönetici Paneli
+              
+                 <asp:Label ID="lblAdminAdi" runat="server" Font-Size="Medium" style="float: right; margin-right: 30px;"></asp:Label>
+             </h1>
+        </div>
+
+   
+        <div id="content" style="overflow: hidden;">
+
+         
+           <div id="admin-menu" style="float: left; width: 20%; background-color: #F8F9FA; min-height: 600px; padding: 20px; border-right: 1px solid #E8EBEE;">
+    <h3 style="margin-top: 0; color: #627D98;">Yönetim Menüsü</h3>
+    <ul>
+        <li><a href="AdminAnasayfa.aspx">Gösterge Paneli</a></li>
+        
+        <li><a href="AdminKitaplar.aspx">Kitapları Yönet</a></li>
+        <li><a href="AdminUyeler.aspx">Üyeleri Yönet</a></li>
+        
+        <hr style="border-color:#D8D2C4;" />
+        
+        <li><a href="../Default.aspx" target="_blank">🌍 Siteyi Görüntüle</a></li>
+        
+        <li>
+            <asp:LinkButton ID="btnAdminCikis" runat="server" OnClick="btnAdminCikis_Click" style="color:red;">🚪 Çıkış Yap</asp:LinkButton>
+        </li>
+    </ul>
+    
+    <style>
+        #admin-menu ul { list-style-type: none; padding: 0; margin: 0; }
+        #admin-menu li a, #admin-menu li a:visited { display: block; padding: 10px 0; text-decoration: none; color: #4A4E54; border-bottom: 1px solid #E8EBEE;}
+        #admin-menu li a:hover { color: #627D98; background-color: #E8EBEE; padding-left:5px; transition:0.3s;}
+    </style>
+</div>
+
+           
+            <div id="admin-content" style="float: left; width: 75%; padding: 20px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                 
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <p>© 2025 MSB Kütüphanesi - Yönetim Paneli</p>
+        </div>
+
+    </div> 
+    </center>
+    </form>
+</body>
+</html>

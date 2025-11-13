@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="KutuphaneProjesi.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="tr">
+<head runat="server">
+    <title>İMU Kütüphane</title>
+  
+    <link href="css/genel.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <center> 
+    <div id="container">
+
+       <div id="header">
+    <div id="logo">
+       <a target="_blank" href="http://www.medeniyet.edu.tr">
+           <img style="margin-top:15px; width:150px; height:auto;" src="/images/logo.png"
+           alt="Okul Logosu"/>
+       </a>
+    </div>
+    <h1 style="text-align: center; color: navy; padding-top: 50px;">İMU Kütüphanesi</h1>
+</div>
+
+    <div id="menu" style="width: 1000px; margin-left: 50px; background-color: lightblue; padding: 10px 0; text-align: center; float:left;">
+    
+    <%-- SOL TARAFTAKİ LİNKLER --%>
+    <span style="float:left; margin-left:20px;">
+        <a href="Default.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Ana Sayfa</a> |
+        <a href="Hakkimizda.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Hakkımızda</a> |
+        <a href="MisyonVizyon.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Misyon & Vizyon</a> |
+        <a href="Iletisim.aspx" style="margin: 0 10px; text-decoration: none; color: black;">İletişim</a> |
+        <a href="Giris.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Giriş Yap</a> |
+        
+        <%-- Şifre Değiştir (SADECE 1 TANE OLMALI) --%>
+        <a href="SifreDegistir.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Şifre Değiştir</a>
+
+        <%-- Yönetici Paneli Linki (Sadece Adminler Görür) --%>
+        <asp:Panel ID="pnlAdminLink" runat="server" Visible="false" style="display:inline;">
+            | <a href="Admin/AdminAnasayfa.aspx" style="margin: 0 10px; text-decoration: none; color: crimson; font-weight:bold;">⚙️ YÖNETİCİ PANELİ</a>
+        </asp:Panel>
+    </span>
+
+    <%-- SAĞ TARAFTAKİ KULLANICI BİLGİSİ VE ÇIKIŞ --%>
+    <span style="float:right; margin-right:20px;">
+        <asp:Label ID="lblKullanici" runat="server" Text="" style="font-weight:bold; color:navy;"></asp:Label>
+        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" Visible="false" style="color:red; text-decoration:none; margin-left:10px;">(Çıkış Yap)</asp:LinkButton>
+    </span>
+
+</div>
+
+        <div id="content">
+           
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"> 
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div id="footer">
+    <p style="text-align:center; padding-top: 30px; color:white;">© 2025 İMU Kütüphanesi - Tüm Hakları Saklıdır.</p> 
+</div>
+
+    </div>
+    </center>
+    </form>
+</body>
+</html>
