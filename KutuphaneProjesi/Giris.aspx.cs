@@ -33,7 +33,14 @@ namespace KutuphaneProjesi
                 
                 if (dr.Read())
                 {
-                   
+                    string durum = dr["durum"].ToString();
+
+                    if (durum == "Engelli" || durum == "Pasif")
+                    {
+                        lblMesaj.Text = "Hesabınız askıya alınmıştır. Yöneticinizle görüşün.";
+                        return;
+                    }
+
                     Session["KullaniciID"] = dr["ID"].ToString();
                     Session["KullaniciYetki"] = dr["yetki"].ToString();
                     Session["KullaniciAd"] = dr["kulad"].ToString();

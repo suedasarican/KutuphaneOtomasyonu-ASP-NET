@@ -102,6 +102,9 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\AdminAnasayfa.aspx" />
     <Content Include="Admin\AdminKitaplar.aspx" />
+    <Content Include="Admin\AdminUyeDuzenle.aspx" />
+    <Content Include="Admin\AdminUyeler.aspx" />
+    <Content Include="Admin\AdminUyeSil.aspx" />
     <Content Include="Admin\kitap_dzn.aspx" />
     <Content Include="Admin\kitap_sil.aspx" />
     <Content Include="Contact.aspx" />
@@ -217,6 +220,27 @@
     </Compile>
     <Compile Include="Admin\AdminKitaplar.aspx.designer.cs">
       <DependentUpon>AdminKitaplar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUyeDuzenle.aspx.cs">
+      <DependentUpon>AdminUyeDuzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUyeDuzenle.aspx.designer.cs">
+      <DependentUpon>AdminUyeDuzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUyeler.aspx.cs">
+      <DependentUpon>AdminUyeler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUyeler.aspx.designer.cs">
+      <DependentUpon>AdminUyeler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUyeSil.aspx.cs">
+      <DependentUpon>AdminUyeSil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUyeSil.aspx.designer.cs">
+      <DependentUpon>AdminUyeSil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\kitap_dzn.aspx.cs">
       <DependentUpon>kitap_dzn.aspx</DependentUpon>
