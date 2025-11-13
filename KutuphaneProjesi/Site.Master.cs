@@ -11,13 +11,17 @@ namespace KutuphaneProjesi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Kullanıcı giriş yapmış mı?
+          
             if (Session["KullaniciAd"] != null)
             {
+                
                 lblKullanici.Text = "Hoşgeldin, " + Session["KullaniciAd"].ToString();
-                btnLogout.Visible = true;
 
-                // KİLİT NOKTA: Eğer giren kişi ADMIN ise, Panel linkini görünür yap
+                btnLogout.Visible = true;          
+                lnkGiris.Visible = false;          
+                lnkSifreDegistir.Visible = true;   
+
+          
                 if (Session["KullaniciYetki"] != null && Session["KullaniciYetki"].ToString() == "admin")
                 {
                     pnlAdminLink.Visible = true;
@@ -29,17 +33,21 @@ namespace KutuphaneProjesi
             }
             else
             {
+        
                 lblKullanici.Text = "Hoşgeldin, Misafir";
-                btnLogout.Visible = false;
-                pnlAdminLink.Visible = false; // Giriş yapmayan admin linkini göremez
+
+                btnLogout.Visible = false;        
+                lnkGiris.Visible = true;           
+                lnkSifreDegistir.Visible = false;  
+                pnlAdminLink.Visible = false;      
             }
         }
 
-        // Çıkış butonuna basılınca çalışacak kod
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session.Abandon(); // Tüm oturum bilgilerini sil (çıkış yap)
-            Response.Redirect("Giris.aspx"); // Giriş sayfasına yönlendir
+            Session.Abandon();
+            Response.Redirect("Giris.aspx"); 
         }
     }
 }

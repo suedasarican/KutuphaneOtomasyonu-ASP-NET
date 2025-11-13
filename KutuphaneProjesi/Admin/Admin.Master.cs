@@ -26,11 +26,11 @@ namespace KutuphaneProjesi.Admin
                 }
             }
         }
-        // btnAdminCikis_Click eventi
+     
         protected void btnAdminCikis_Click(object sender, EventArgs e)
         {
-            Session.Abandon(); // Oturumu öldür
-            Response.Redirect("~/Giris.aspx"); // Giriş sayfasına at
+            Session.Abandon(); 
+            Response.Redirect("~/Giris.aspx");
         }
     }
 }

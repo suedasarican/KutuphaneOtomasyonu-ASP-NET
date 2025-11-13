@@ -27,24 +27,25 @@
 
     <div id="menu" style="width: 1000px; margin-left: 50px; background-color: lightblue; padding: 10px 0; text-align: center; float:left;">
     
-    <%-- SOL TARAFTAKİ LİNKLER --%>
+    
     <span style="float:left; margin-left:20px;">
         <a href="Default.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Ana Sayfa</a> |
         <a href="Hakkimizda.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Hakkımızda</a> |
         <a href="MisyonVizyon.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Misyon & Vizyon</a> |
         <a href="Iletisim.aspx" style="margin: 0 10px; text-decoration: none; color: black;">İletişim</a> |
-        <a href="Giris.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Giriş Yap</a> |
         
-        <%-- Şifre Değiştir (SADECE 1 TANE OLMALI) --%>
-        <a href="SifreDegistir.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Şifre Değiştir</a>
+        
+        <a id="lnkGiris" runat="server" href="Giris.aspx" style="margin: 0 10px; text-decoration: none; color: black;">Giriş Yap</a>
+        
+        <a id="lnkSifreDegistir" runat="server" href="SifreDegistir.aspx" visible="false" style="margin: 0 10px; text-decoration: none; color: black;"> | Şifre Değiştir</a>
 
-        <%-- Yönetici Paneli Linki (Sadece Adminler Görür) --%>
+        
         <asp:Panel ID="pnlAdminLink" runat="server" Visible="false" style="display:inline;">
             | <a href="Admin/AdminAnasayfa.aspx" style="margin: 0 10px; text-decoration: none; color: crimson; font-weight:bold;">⚙️ YÖNETİCİ PANELİ</a>
         </asp:Panel>
     </span>
 
-    <%-- SAĞ TARAFTAKİ KULLANICI BİLGİSİ VE ÇIKIŞ --%>
+   
     <span style="float:right; margin-right:20px;">
         <asp:Label ID="lblKullanici" runat="server" Text="" style="font-weight:bold; color:navy;"></asp:Label>
         <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" Visible="false" style="color:red; text-decoration:none; margin-left:10px;">(Çıkış Yap)</asp:LinkButton>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data.SqlClient; // SQL kütüphanesini unutma
+using System.Data.SqlClient; 
 
 namespace KutuphaneProjesi
 {
@@ -9,7 +9,7 @@ namespace KutuphaneProjesi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Giriş yapmamış kişi şifre değiştiremez
+            
             if (Session["KullaniciID"] == null)
             {
                 Response.Redirect("Giris.aspx");
@@ -26,18 +26,18 @@ namespace KutuphaneProjesi
             {
                 baglan.Open();
 
-                // 1. ADIM: Eski şifre doğru mu kontrol et
+              
                 SqlCommand komutKontrol = new SqlCommand("SELECT * FROM kullanicilar WHERE ID=@id AND sifre=@eski", baglan);
                 komutKontrol.Parameters.AddWithValue("@id", kullaniciID);
                 komutKontrol.Parameters.AddWithValue("@eski", eskiSifre);
 
                 SqlDataReader dr = komutKontrol.ExecuteReader();
 
-                if (dr.Read()) // Eğer kayıt varsa eski şifre doğrudur
+                if (dr.Read()) 
                 {
-                    dr.Close(); // Okuyucuyu kapat ki yeni sorgu yazabilelim
+                    dr.Close(); 
 
-                    // 2. ADIM: Şifreyi Güncelle (UPDATE)
+                    
                     SqlCommand komutGuncelle = new SqlCommand("UPDATE kullanicilar SET sifre=@yeni WHERE ID=@id", baglan);
                     komutGuncelle.Parameters.AddWithValue("@yeni", yeniSifre);
                     komutGuncelle.Parameters.AddWithValue("@id", kullaniciID);
